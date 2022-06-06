@@ -1,0 +1,8 @@
+{% extends 'main.html' %} {% block main %}
+{% include "src/nav.html" %}
+{% block auth %}{% endblock %}
+{% if template %}
+<div id="content_wrapper"{% include template %}</div>
+{% endif %}
+{% include "src/footer.html" %}
+{% endblock %}

@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  subnotify:
+    build: .
+    image: localhost:5000/subnotify:latest
+    env_file:
+      - .env
+    restart: always
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn config.wsgi:application  -b 0.0.0.0:80"
+    container_name: subnotify
+    volumes:
+      - ./subnotify:/usr/src/app
+
+  nginx-subnotify:
+    image: nginx:latest
+    restart: always
+    container_name: nginx-subnotify
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=hostnet"
+      - "traefik.http.routers.entrypoints=web"
+      - "traefik.http.routers.nginx-subnotify.rule=Host(`subnotify.localhost`)"
+      - "traefik.http.services.nginx-subnotify.loadbalancer.server.port=80"
+    volumes:
+      - ./subnotify:/usr/src/app
+      - ./nginx:/etc/nginx/conf.d/
+    depends_on:
+      - subnotify
+
+  db-subnotify:
+    image: postgres
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - subnotifydata:/var/lib/postgresql/data
+
+volumes: 
+    subnotifydata:
+
+    
+networks: 
+  default: 
+    external: 
+      name: hostnet

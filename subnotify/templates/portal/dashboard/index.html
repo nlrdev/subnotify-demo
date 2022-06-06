@@ -1,0 +1,30 @@
+<div class="container p-5">
+    <div class="fb-container bg-d1 shadow">
+        <div class="fb-item-products">
+            <ul class="group-list">
+                <h4>active services</h4>
+                {% for service in services %}
+                <li class="list-group-item bg-light  border border-2 border-dark">
+                    uid: {{service.uid |slice:":8"}} <br>
+                    name: {{service.name}}
+                </li>
+          
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="fb-item-products">            
+            <ul class="group-list">       
+                <h4>active clients</h4>         
+                {% for client in clients %}
+                <li class="list-group-item bg-light  border border-2 border-dark">
+                    uid: {{client.uid |slice:":8"}}<br>
+                    email: {{client.email}}<br>
+                    cell: {{client.cell}}
+                </li>
+        
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

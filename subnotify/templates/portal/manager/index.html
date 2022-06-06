@@ -1,0 +1,128 @@
+{% csrf_token %} {% load crispy_forms_tags %}
+<div class="container text-center" style="padding-top:69px;">
+  <div class='col-3 bg-d1 p-2'>
+    <h5> Create Service </h5>
+    <form class="p-2" id="service_form" tag="add_service" uid="{{env.uid}}">
+      {{ forms.service_form | crispy }}<br>
+      <input class="btn btn-outline-light" type="submit" value="Submit" />
+    </form>
+  </div>
+  <br>
+  <div class="bg-d1 p-1 shadow">
+    <h5> Services </h5>
+    <table class="table bg-lt text-dark">
+      <thead>
+        <tr>
+          <th scope="col">uid</th>
+          <th scope="col">Service name</th>
+          <th scope="col">Service Subs</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for service in services %}
+        <tr class="border border-2 border-dark">
+          <th scope="row">{{service.uid |slice:":8"}}</th>
+          <td>{{service.name}}</td>
+          <td>
+            <ul class="group-list">
+              <table class="table bg-lt text-dark">
+                <thead>
+                  <tr class="border border-2 border-dark">
+                    <th scope="col">uid</th>
+                    <th scope="col">name</th>
+                    <th scope="col">service</th>
+                    <th scope="col">method</th>
+                    <th scope="col">frequency</th>
+                    <th scope="col">start_date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for sub in service.subscriptions.all %}
+                  <tr class="border border-2 border-dark">
+                    <th scope="row">{{sub.uid |slice:":8"}}</th>
+                    <td>{{sub.name}}</td>
+                    <td>{{sub.service}}</td>
+                    <td>
+                      <span class="border border-2 rounded border-dark
+                        {% if sub.sms == True %} bg-success {% else %} bg-danger {% endif %}">[ SMS ]</span>
+                      <br>
+                      <span class="border border-2 rounded border-dark
+                        {% if sub.email == True %} bg-success {% else %} bg-danger {% endif %}">[ EMAIL ]</span>
+                      <br>
+                      <span class="border border-2 rounded border-dark
+                        {% if sub.push == True %} bg-success {% else %} bg-danger {% endif %}"> [ PUSH ]</span>
+                      <br>
+                    </td>
+                    <td>{{sub.frequency}}</td>
+                    <td>{{sub.start_date}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </ul>
+          </td>
+          <td>
+            <form class="p-2 border border-2 border-dark" id="sub_form" tag="add_sub" uid="{{env.uid}}">
+              {{ forms.sub_form | crispy }} <br>
+              <input class="btn btn-outline-dark" type="submit" value="Submit" />
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class='col-3 bg-d1 p-2'>
+    <h5> Add Client </h5>
+    <form class="p-2" id="client_form" tag="add_client" uid="{{env.uid}}">
+      {{ forms.client_form | crispy }}<br>
+      <input class="btn btn-outline-light" type="submit" value="Submit" />
+    </form>
+  </div>
+  <br>
+  <div class="bg-d1 p-1 shadow">
+    <h5> Clients </h5>
+    <table class="table bg-lt text-dark">
+      <thead>
+        <tr>
+          <th scope="col">uid</th>
+          <th scope="col">Name</th>
+          <th scope="col">Sontact</th>
+          <th scope="col">Active Subscriptions</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for client in clients %}
+        <tr class="border border-2 border-dark">
+          <th scope="row">{{client.uid |slice:":8"}}</th>
+          <td>{{client.email}}</td>
+          <td>{{client.cell}}</td>
+          <td>
+            <ul class="group-list">
+              {% for sub in client.subscriptions.all %}
+              <li class="list-group-item">
+                Name: <span class="border border-2 rounded border-dark"> {{sub.name}} </span><br>
+                frequency <span class="border border-2 rounded border-dark"> {{sub.frequency}}
+                </span><br>
+              </li>
+              {% endfor %}
+            </ul>
+          </td>
+          <td>
+            <form class="p-2 border border-2 border-dark" id="client_sub_form" tag="add_clinet_sub"
+              uid="{{client.uid}}">
+              {{ forms.clinet_sub_form | crispy }} <br>
+              <input class="btn btn-outline-dark" type="submit" value="Save" />
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>

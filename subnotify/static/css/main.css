@@ -1,0 +1,307 @@
+body,
+html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: #d5eeff  !important;
+    color: #d3d4d4 !important;
+    scroll-behavior: smooth;
+}
+
+li.list-group-item {
+    color: #000000 !important;
+}
+
+li.list-group-item.stacklist {
+    background-color: rgba(255, 255, 255, 0) !important;
+    color: #ffffff !important;
+}
+
+
+p {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+    margin: 0 0 24px;
+    text-align: justify;
+    text-justify: inter-word;
+    text-align: center;
+}
+
+p:after {
+    /* this adds an extra invisible line, so any other line is justified */
+    content: '';
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+}
+
+p.left {
+    text-align: left;
+}
+
+p.right {
+    text-align: right;
+}
+
+tr.htb:hover {
+    background-color: #031f30;
+    color: #ffffff;
+}
+
+.m-font {
+    font-size: 1.1rem;
+}
+
+.big-font {
+    font-size: 1.4rem;
+}
+
+.big-xl {
+    font-size: 3rem;
+}
+
+.bg-img {
+    background-image: url("http://silimasoftware.localhost/static/a2.jpg");
+    background-repeat: no-repeat;
+    background-color: #031f30;
+    height: 900px;
+}
+
+.bg-imgb {
+    background-position: center;
+    background-size:cover;
+    height: 500px;
+    background-image: url("http://silimasoftware.localhost/static/a1.jpg");
+}
+
+.bg-imgb1 {
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-image: url("http://silimasoftware.localhost/static/coffee2.jpg");
+}
+
+.bg-contact {
+    background-position: center;
+    background-size:cover;
+    background-image: url("http://silimasoftware.localhost/static/contact.jpg");
+}
+
+
+
+.bg-obs {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.bg-lt {
+    background-color: #e2e5e7;
+}
+
+.bg-d1 {
+    background-color: #00040ede !important;
+}
+
+.bg-d2 {
+    background-color: #031f30;
+}
+
+.fb-item {
+    width: 520px;
+    margin: 10px;
+}
+
+.fb-item-thin {
+    padding-top: 5px;
+    width: 420px;
+    margin: 10px;
+}
+
+.fb-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: flex-start;
+}
+
+.fb-item-shop {
+    width: 270px;
+    margin: 5px;
+}
+
+.fb-item-products {
+    width: 350px;
+    margin: 5px;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-center {
+    float: center;
+}
+
+.page-text {
+    color: #d3d4d4 !important;
+}
+
+.text-red {
+    color: #dc3545 !important;
+}
+
+.test {
+    background-color: #2f8bc5, #21658f, #074368, #031f30;
+}
+
+.text-white {
+    color: white;
+}
+
+.headings-mono {
+    font-family: 'Roboto Mono', sans-serif !important;
+}
+
+.mlink:hover {
+    color: white !important;
+    transform: scale(1.1);
+}
+
+.mlink-a {
+    color: white !important;
+    transform: scale(1.1);
+}
+
+.nlink {
+    box-shadow: none;
+    color: rgb(207, 207, 207);
+}
+
+.nlink:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white !important;
+}
+
+.nlink-a {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white !important;
+}
+
+
+.user-display-font {
+    font-size: 0.9rem;
+}
+
+.nav_bg{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.nav_font {
+    box-sizing:border-box;
+    color: #ffffff !important;
+}
+
+.nav_selected {
+    color: #38a2e4 !important;
+}
+
+.big-font {
+    font-size: 1.4rem;
+}
+
+.big-xl {
+    font-size: 3rem;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.bg-d {
+    background-color: #031f30 !important;
+}
+
+.card {
+    background-color: #ecf7fd !important;
+    color: #000000 !important;
+}
+
+.prod-card {
+    background-color: #ecf7fd !important;
+    color: #000000 !important;
+}
+
+.fill-lt {
+    color: #E0F2FD;
+}
+
+.card:hover {
+    z-index: 2;
+}
+
+.card-list {
+    background-color: #f8f9fa !important;
+    color: #031f30 !important;
+}
+
+.card-list:hover {
+    background-color: #031f30 !important;
+    color: #E0F2FD !important;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.makebig {
+    transform: scale(1.25);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+
+.font-sm {
+    font-size: 0.97rem;
+}
+
+.font-sml {
+    font-size: 0.8rem;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Dropdown Button */
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #031f30;
+    color: #E0F2FD !important;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
