@@ -20,7 +20,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.subnotify_nginx.entrypoints=websecure"
       - "traefik.http.routers.subnotify_nginx.tls.certresolver=sslresolver"
-      - "traefik.http.routers.subnotify_nginx.rule=Host(`alpha.subnotify.co.za`)"
+      - "traefik.http.routers.subnotify_nginx.rule=Host(`subnotify.silimasoftware.co.za`)"
       - "traefik.http.services.subnotify_nginx.loadbalancer.server.port=80"
     volumes:
       - website_data:/usr/src/app
